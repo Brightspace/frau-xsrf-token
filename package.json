@@ -1,0 +1,26 @@
+{
+  "name": "frau-xsrf-token",
+  "version": "1.0.0",
+  "description": "Utility to get an XSRF token from a FRA",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brightspace/frau-xsrf-token.git"
+  },
+  "keywords": [
+    "d2l",
+    "frau"
+  ],
+  "author": "D2L Corporation",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Brightspace/frau-xsrf-token/issues"
+  },
+  "dependencies": {
+    "lie": "^3.0.1",
+    "superagent": "^1.3.0"
+  }
+}
