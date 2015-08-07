@@ -2,21 +2,7 @@
 
 var STORAGE_KEY = 'XSRF.Token';
 
-function getRepo () {
-	if (!global.D2L
-		|| !global.D2L.LP
-		|| !global.D2L.LP.Web
-		|| !global.D2L.LP.Web.UI
-		|| !global.D2L.LP.Web.UI.Dom
-		|| !global.D2L.LP.Web.UI.Dom.Storage
-	) {
-		console.log('Couldn\'t get D2L.LP.Web.UI.Dom.Storage.Repo for backup '
-					+ 'storage - are you in an iframe with private-mode Safari?');
-		return {};
-	}
-
-	return global.D2L.LP.Web.UI.Dom.Storage.Repo;
-}
+var fallback = Object.create(null);
 
 function get (key) {
 	if (global.localStorage) {
@@ -24,8 +10,8 @@ function get (key) {
 			return global.localStorage[key];
 		} catch (e) {}
 	}
-	var repo = getRepo();
-	return repo[key];
+
+	return fallback[key];
 }
 
 function set (key, value) {
@@ -35,8 +21,8 @@ function set (key, value) {
 			return;
 		} catch (e) {}
 	}
-	var repo = getRepo();
-	repo[key] = value;
+
+	fallback[key] = value;
 }
 
 module.exports.get = function getWrapper () {
