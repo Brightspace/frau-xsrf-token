@@ -14,7 +14,8 @@ module.exports = function getXsrfToken () {
 				return token;
 			}
 
-			return requestToken()
+			return requestToken
+				.get()
 				.then(storage.set);
 		});
 };

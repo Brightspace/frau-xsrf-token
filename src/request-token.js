@@ -3,10 +3,12 @@
 var Promise = require('lie'),
 	request = require('superagent');
 
-module.exports = function requestXsrfToken () {
+var XSRF_TOKEN_PATH = '/d2l/lp/auth/xsrf-tokens';
+
+function requestXsrfToken () {
 	return new Promise(function (resolve, reject) {
 		request
-			.get('/d2l/lp/auth/xsrf-tokens')
+			.get(XSRF_TOKEN_PATH)
 			.end(function (err, res) {
 				if (err) {
 					return reject(err);
@@ -15,4 +17,7 @@ module.exports = function requestXsrfToken () {
 				return resolve(res.body.referrerToken);
 			});
 	});
-};
+}
+
+module.exports.get = requestXsrfToken;
+module.exports.XSRF_TOKEN_PATH = XSRF_TOKEN_PATH;

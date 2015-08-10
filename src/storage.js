@@ -2,16 +2,16 @@
 
 var STORAGE_KEY = 'XSRF.Token';
 
-var fallback = Object.create(null);
+var fallback = null;
 
 function get (key) {
 	if (global.localStorage) {
 		try {
-			return global.localStorage[key];
+			return global.localStorage.getItem(key);
 		} catch (e) {}
 	}
 
-	return fallback[key];
+	return fallback;
 }
 
 function set (key, value) {
@@ -22,7 +22,7 @@ function set (key, value) {
 		} catch (e) {}
 	}
 
-	fallback[key] = value;
+	fallback = value;
 }
 
 module.exports.get = function getWrapper () {
@@ -31,4 +31,7 @@ module.exports.get = function getWrapper () {
 module.exports.set = function setWrapper (value) {
 	set(STORAGE_KEY, value);
 	return value;
+};
+module.exports._resetFallback = function resetFallback () {
+	fallback = null;
 };
