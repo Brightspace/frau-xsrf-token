@@ -6,7 +6,7 @@ var Promise = require('lie'),
 module.exports = function requestXsrfToken () {
 	return new Promise(function (resolve, reject) {
 		request
-			.post('/d2l/lp/auth/xsrf-tokens')
+			.get('/d2l/lp/auth/xsrf-tokens')
 			.end(function (err, res) {
 				if (err) {
 					return reject(err);
