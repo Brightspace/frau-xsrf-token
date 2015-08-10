@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-- '0.12.4'
+- 0.12.4
 sudo: false
 after_success:
 - npm run report-coverage
+deploy:
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  api_key:
+    secure: CfdQuA+1+AdejqhB9wK2hpT7MturfEqHpx3J8g9YtYgGqf9rLGZxqn8KPhRUpDulDiAgZop6lbv+kpmfjpQ45pWKP37UFWqbwXsinBVXpKLAIbpcZIzT7aU9qND6gj83rGgP4XxuOxQG56D8lFdtdQ+B3iPfmSsjKvOn11oLStNSY9tBU75I3paTiHKQmXO9C7pATPLW85LrqW7SpeVJ2aKE4XMKPADb6hXR6UWE8JTjzEPjeNKH6mGBYC+1SpLEFvPe/mJd9Kc4LonbtIFeMNLadoo4NlxcBC9nNNOb+ZZWY3IGeaaMGroK5OULa41e6OA+nsfrD0wRiN5cU0X2JzbsrSEecpv6kTloCBtHPmgq31RD4XlEsSTpcqedzbkgplOiDtGL5EAdfipFx2BGjoyGZRpCjyq8GtuXoqluNeqLAAvKT2mJYL1vnHazNQJqX29V27FTPkwC9zWt/cjFJJxWRWiQs22MlZhC+e3I8lQHQ9UOuhUlA0AJPIpWsfrT9uz5CtI0gbK5P6g1ESnRVsBRT6l3eKQp0JULBnX/KdBCp7w0UmNNNwJiPlm+wKLgBl80ujClioNDP+em78n5uLYxLj/TdqPVwWj7i5M0T1FwUuptx3uu5IyNKBdTi2eEBTrOjJBo6hwTwanOqhTvZ0dlMH4bbmyJ2m7Q5FgCp7E=
+  on:
+    tags: true
+    repo: Brightspace/frau-xsrf-token
