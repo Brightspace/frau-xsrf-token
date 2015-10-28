@@ -5,11 +5,11 @@ var Promise = require('lie'),
 
 var XSRF_TOKEN_PATH = '/d2l/lp/auth/xsrf-tokens';
 
-function requestXsrfToken () {
-	return new Promise(function (resolve, reject) {
+function requestXsrfToken() {
+	return new Promise(function(resolve, reject) {
 		request
 			.get(XSRF_TOKEN_PATH)
-			.end(function (err, res) {
+			.end(function(err, res) {
 				if (err) {
 					return reject(err);
 				}

@@ -6,12 +6,12 @@ var expect = require('chai').expect,
 
 var requestToken = require('../src/request-token');
 
-describe('request-token', function () {
-	it('should resolve the referrerToken provided by the LMS', function () {
+describe('request-token', function() {
+	it('should resolve the referrerToken provided by the LMS', function() {
 		mock(request, [{
 			pattern: requestToken.XSRF_TOKEN_PATH,
-			fixtures: function noop () {},
-			callback: function () {
+			fixtures: function noop() {},
+			callback: function() {
 				return {
 					body: {
 						hitcodeSeed: '1234',
@@ -24,15 +24,15 @@ describe('request-token', function () {
 		return expect(requestToken.get()).to.eventually.equal('foo-bar');
 	});
 
-	it('should reject when there are errors requesting the token', function () {
+	it('should reject when there are errors requesting the token', function() {
 		mock(request, [{
 			pattern: requestToken.XSRF_TOKEN_PATH,
-			fixtures: function () {
+			fixtures: function() {
 				var err = new Error('bad things');
 				err.code = 500;
 				throw err;
 			},
-			callback: function noop () {}
+			callback: function noop() {}
 		}]);
 
 		return expect(requestToken.get()).to.be.rejectedWith('bad things');
