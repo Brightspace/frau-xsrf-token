@@ -61,8 +61,8 @@ npm test
 
 ### Code Style
 
-This repository is configured with [EditorConfig][EditorConfig], [jscs][jscs]
-and [JSHint][JSHint] rules.
+This repository is configured with [EditorConfig][EditorConfig] and
+[ESLint][ESLint] rules.
 
 
 [npm-url]: https://www.npmjs.org/package/frau-xsrf-token
@@ -77,5 +77,4 @@ and [JSHint][JSHint] rules.
 [superagent-plugin]: https://github.com/Brightspace/frau-superagent-xsrf-token
 
 [EditorConfig]: http://editorconfig.org/
-[jscs]: http://jscs.info/
-[JSHint]: http://jshint.com/
+[ESLint]: http://eslint.org

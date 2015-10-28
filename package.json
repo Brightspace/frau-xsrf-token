@@ -4,7 +4,9 @@
   "description": "Utility to get an XSRF token from a FRA",
   "main": "src/index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -r test/_*.js test/*.spec.js",
+    "check-style": "eslint .",
+    "test-unit": "istanbul cover _mocha -r test/_*.js test/*.spec.js",
+    "test": "npm run check-style && npm run test-unit",
     "report-coverage": "coveralls < coverage/lcov.info"
   },
   "repository": {
@@ -28,6 +30,8 @@
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
     "coveralls": "^2.11.3",
+    "eslint": "^1.7.3",
+    "eslint-config-brightspace": "0.0.3",
     "istanbul": "^0.3.17",
     "mocha": "^2.2.5",
     "nock": "^2.10.0",
