@@ -1,6 +1,6 @@
 {
   "name": "frau-xsrf-token",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Utility to get an XSRF token from a FRA",
   "main": "src/index.js",
   "scripts": {
