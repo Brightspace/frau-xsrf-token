@@ -1,7 +1,5 @@
 'use strict';
 
-var Promise = require('lie');
-
 var	requestToken = require('./request-token'),
 	storage = require('./storage');
 

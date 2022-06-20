@@ -1,7 +1,6 @@
 'use strict';
 
-var Promise = require('lie'),
-	request = require('superagent');
+var request = require('superagent');
 
 var XSRF_TOKEN_PATH = '/d2l/lp/auth/xsrf-tokens';
 
