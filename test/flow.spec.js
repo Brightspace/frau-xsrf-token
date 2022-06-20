@@ -1,7 +1,6 @@
 'use strict';
 
 var expect = require('chai').expect,
-	Promise = require('lie'),
 	sinon = require('sinon');
 
 var xsrfToken = require('../');
