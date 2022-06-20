@@ -23,7 +23,7 @@
     "url": "https://github.com/Brightspace/frau-xsrf-token/issues"
   },
   "dependencies": {
-    "superagent": "^3.4.1"
+    "superagent": "^7"
   },
   "devDependencies": {
     "chai": "^3.4.0",
