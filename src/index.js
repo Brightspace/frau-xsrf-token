@@ -1,6 +1,6 @@
+import { getStorage, setStorage } from './storage.js';
 import { requestXsrfToken } from './request-token.js';
 export { XSRF_TOKEN_PATH } from './request-token.js';
-import { getStorage, setStorage } from './storage.js';
 
 export default async function getXsrfToken() {
 
