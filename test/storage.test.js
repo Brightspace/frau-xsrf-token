@@ -31,14 +31,15 @@ describe('storage', () => {
 		before(_resetFallback);
 		after(_resetFallback);
 
+		let getItemStub, setItemStub;
 		beforeEach(() => {
-			sinon.stub(window.localStorage, 'getItem').throws();
-			sinon.stub(window.localStorage, 'setItem').throws();
+			getItemStub = sinon.stub(window.localStorage, 'getItem').throws();
+			setItemStub = sinon.stub(window.localStorage, 'setItem').throws();
 		});
 
 		afterEach(() => {
-			window.localStorage.getItem.restore();
-			window.localStorage.setItem.restore();
+			getItemStub.restore();
+			setItemStub.restore();
 		});
 
 		defineTests();
