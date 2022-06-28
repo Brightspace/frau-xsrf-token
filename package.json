@@ -2,12 +2,12 @@
   "name": "frau-xsrf-token",
   "version": "2.1.0",
   "description": "Utility to get an XSRF token from a FRA",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "check-style": "eslint .",
-    "test-unit": "istanbul cover _mocha -r test/_*.js test/*.spec.js",
-    "test": "npm run check-style && npm run test-unit",
-    "report-coverage": "coveralls < coverage/lcov.info"
+    "lint": "eslint . --ext .js",
+    "test": "npm run lint && npm run test:headless",
+    "test:headless": "web-test-runner --files ./test/**/*.test.js --node-resolve"
   },
   "repository": {
     "type": "git",
@@ -22,21 +22,19 @@
   "bugs": {
     "url": "https://github.com/Brightspace/frau-xsrf-token/issues"
   },
-  "dependencies": {
-    "superagent": "^7"
-  },
   "devDependencies": {
-    "chai": "^3.4.0",
-    "chai-as-promised": "^5.1.0",
-    "coveralls": "^2.11.4",
-    "eslint": "^1.7.3",
-    "eslint-config-brightspace": "0.0.3",
-    "eslint-plugin-react": "^3.5.0",
-    "istanbul": "^0.4.0",
-    "mocha": "^2.3.3",
-    "nock": "^2.15.0",
-    "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0",
-    "superagent-mock": "^1.7.0"
-  }
+    "@open-wc/testing": "^3",
+    "@web/test-runner": "^0.13",
+    "eslint": "^8",
+    "eslint-config-brightspace": "^0.18",
+    "eslint-plugin-html": "^6",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-lit": "^1",
+    "eslint-plugin-sort-class-members": "^1",
+    "sinon": "^14"
+  },
+  "files": [
+    "/src"
+  ],
+  "exports": "./src/index.js"
 }

@@ -1,19 +1,14 @@
-'use strict';
+import { getStorage, setStorage } from './storage.js';
+import { requestXsrfToken } from './request-token.js';
+export { XSRF_TOKEN_PATH } from './request-token.js';
 
-var	requestToken = require('./request-token'),
-	storage = require('./storage');
+export default async function getXsrfToken() {
 
-module.exports = function getXsrfToken() {
-	return Promise
-		.resolve()
-		.then(storage.get)
-		.then(function(token) {
-			if (token) {
-				return token;
-			}
+	const storageToken = getStorage();
+	if (storageToken) return storageToken;
 
-			return requestToken
-				.get()
-				.then(storage.set);
-		});
-};
+	const token = await requestXsrfToken();
+	setStorage(token);
+	return token;
+
+}
