@@ -5,12 +5,13 @@ import sinon from 'sinon';
 
 describe('frau-xsrf-token', () => {
 
-	let fetchStub;
+	let sandbox, fetchStub;
 	beforeEach(() => {
-		fetchStub = sinon.stub(window, 'fetch');
+		sandbox = sinon.createSandbox();
+		fetchStub = sandbox.stub(window, 'fetch');
 	});
 	afterEach(() => {
-		fetchStub.restore();
+		sandbox.restore();
 		localStorage.clear();
 	});
 

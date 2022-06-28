@@ -4,12 +4,13 @@ import sinon from 'sinon';
 
 describe('request-token', () => {
 
-	let fetchStub;
+	let sandbox, fetchStub;
 	beforeEach(() => {
-		fetchStub = sinon.stub(window, 'fetch');
+		sandbox = sinon.createSandbox();
+		fetchStub = sandbox.stub(window, 'fetch');
 	});
 	afterEach(() => {
-		fetchStub.restore();
+		sandbox.restore();
 	});
 
 	it('should resolve the referrerToken provided by the LMS', async() => {

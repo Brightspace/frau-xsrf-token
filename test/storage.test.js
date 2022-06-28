@@ -23,7 +23,14 @@ function defineTests() {
 
 describe('storage', () => {
 
-	beforeEach(() => localStorage.clear());
+	let sandbox;
+	beforeEach(() => {
+		localStorage.clear();
+		sandbox = sinon.createSandbox();
+	});
+	afterEach(() => {
+		sandbox.restore();
+	});
 
 	defineTests();
 
@@ -31,15 +38,9 @@ describe('storage', () => {
 		before(_resetFallback);
 		after(_resetFallback);
 
-		let getItemStub, setItemStub;
 		beforeEach(() => {
-			getItemStub = sinon.stub(window.localStorage, 'getItem').throws();
-			setItemStub = sinon.stub(window.localStorage, 'setItem').throws();
-		});
-
-		afterEach(() => {
-			getItemStub.restore();
-			setItemStub.restore();
+			sandbox.stub(window.localStorage, 'getItem').throws();
+			sandbox.stub(window.localStorage, 'setItem').throws();
 		});
 
 		defineTests();
