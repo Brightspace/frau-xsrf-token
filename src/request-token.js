@@ -1,22 +1,10 @@
-'use strict';
+export const XSRF_TOKEN_PATH = '/d2l/lp/auth/xsrf-tokens';
 
-var request = require('superagent');
-
-var XSRF_TOKEN_PATH = '/d2l/lp/auth/xsrf-tokens';
-
-function requestXsrfToken() {
-	return new Promise(function(resolve, reject) {
-		request
-			.get(XSRF_TOKEN_PATH)
-			.end(function(err, res) {
-				if (err) {
-					return reject(err);
-				}
-
-				return resolve(res.body.referrerToken);
-			});
-	});
+export async function requestXsrfToken() {
+	const res = await fetch(XSRF_TOKEN_PATH);
+	if (!res.ok) {
+		throw new Error(res.statusText);
+	}
+	const val = await res.json();
+	return val.referrerToken;
 }
-
-module.exports.get = requestXsrfToken;
-module.exports.XSRF_TOKEN_PATH = XSRF_TOKEN_PATH;
