@@ -1,4 +1,4 @@
-import { expect } from '@open-wc/testing';
+import { expect } from '@brightspace-ui/testing';
 import getXsrfToken from '../src/index.js';
 import { setStorage } from '../src/storage.js';
 import sinon from 'sinon';
