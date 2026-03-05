@@ -1,5 +1,5 @@
 import { _resetFallback, getStorage, setStorage } from '../src/storage.js';
-import { expect } from '@open-wc/testing';
+import { expect } from '@brightspace-ui/testing';
 import sinon from 'sinon';
 
 function defineTests() {

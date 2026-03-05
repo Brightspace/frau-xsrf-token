@@ -6,7 +6,7 @@ function getHelper(key) {
 	if (localStorage) {
 		try {
 			return localStorage.getItem(key);
-		} catch (e) { /* do nothing */ }
+		} catch { /* do nothing */ }
 	}
 
 	return fallback;
@@ -17,7 +17,7 @@ function setHelper(key, value) {
 		try {
 			localStorage.setItem(key, value);
 			return;
-		} catch (e) { /* do nothing */ }
+		} catch { /* do nothing */ }
 	}
 
 	fallback = value;
